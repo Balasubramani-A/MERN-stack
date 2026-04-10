@@ -29,3 +29,14 @@ console.log(anotherUser);
 console.log(typeof (user));
 console.log(typeof (anotherUser));
 //null is an object and undefined is undefined
+
+// string
+let firstName = "John";
+console.log(firstName);
+
+//String interpolation
+let lastName = "Doe";
+let fullName = `${firstName} ${lastName}`;
+console.log(fullName);  
+
+
