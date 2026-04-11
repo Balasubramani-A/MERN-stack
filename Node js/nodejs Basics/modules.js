@@ -10,4 +10,11 @@ console.log(fs);
 
 
 const content = fs.readFileSync('notes.txt', 'utf-8');
+//sync means it is a blocking operation 
 console.log(content);
+
+
+fs.writeFileSync('copy.txt', 'This is a new note', 'utf-8');
+
+fs.writeFileSync('copy.txt', 'This is an updated note', 'utf-8'); //overwrites the content of the file
+fs.appendFileSync('copy.txt', '\nThis is an appended note', 'utf-8'); //appends the content to the file 
