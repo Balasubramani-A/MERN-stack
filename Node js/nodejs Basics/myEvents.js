@@ -17,3 +17,4 @@ eventEmitter.once('pushnotification', (message) => {
 eventEmitter.emit('greet', 'Balasubramani');
 
 eventEmitter.emit('pushnotification', 'You have a new message from Balu!');
+eventEmitter.emit('pushnotification', 'You have a new message from John!'); // This will not trigger the event listener since it's a one-time listener  
