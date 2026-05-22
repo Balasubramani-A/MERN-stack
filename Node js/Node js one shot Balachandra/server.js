@@ -39,3 +39,10 @@ process.on("uncaughtException", (err) => {
   process.exit(1); // Exit the process with a non-zero code to indicate an error
 });
 
+fs.writeFile(path.join(__dirname, 'files', 'content.txt'), "Hello World, happy earning", (err) => {
+  if (err) {
+    console.error("Error writing file:", err);
+    return;
+  }
+  console.log("File written successfully");
+});
