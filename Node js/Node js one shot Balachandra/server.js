@@ -64,21 +64,21 @@ const fsPromises = require("fs").promises;
 // });
 
 
-const fileOps = async () => {
-  try {
-    const data = await fsPromises.readFile(path.join(__dirname, "files", "start.txt"), "utf-8");            
-    console.log("File contents:", data);
-    await fsPromises.writeFile(path.join(__dirname, "files", "content.txt"), "Hello World, happy learning");
-    console.log("File written successfully");   
-    await fsPromises.appendFile(path.join(__dirname, "files", "content.txt"), "\nWelcome to Node.js learning");
-    console.log("File appended successfully");
-    await fsPromises.rename(path.join(__dirname, "files", "content.txt"), path.join(__dirname, "files", "newContent.txt"));
-    console.log("File renamed successfully");
-    await fsPromises.unlink(path.join(__dirname, "files", "start.txt")); 
-    console.log("File deleted successfully");
-  } catch (err) {
-    console.error("Error:", err);
-  } 
-};
+// const fileOps = async () => {
+//   try {
+//     const data = await fsPromises.readFile(path.join(__dirname, "files", "start.txt"), "utf-8");            
+//     console.log("File contents:", data);
+//     await fsPromises.writeFile(path.join(__dirname, "files", "content.txt"), "Hello World, happy learning");
+//     console.log("File written successfully");   
+//     await fsPromises.appendFile(path.join(__dirname, "files", "content.txt"), "\nWelcome to Node.js learning");
+//     console.log("File appended successfully");
+//     await fsPromises.rename(path.join(__dirname, "files", "content.txt"), path.join(__dirname, "files", "newContent.txt"));
+//     console.log("File renamed successfully");
+//     await fsPromises.unlink(path.join(__dirname, "files", "start.txt")); 
+//     console.log("File deleted successfully");
+//   } catch (err) {
+//     console.error("Error:", err);
+//   } 
+// };
 
-fileOps();
+// fileOps();
