@@ -10,6 +10,16 @@ if(!fs.existsSync(path.join(__dirname, "./newDir"))) {
     console.log("Directory created successfully");
     });
 } 
+
+if(fs.existsSync(path.join(__dirname, "./newDir"))) {
+    fs.rmdir(path.join(__dirname, "./newDir"), (err) => {
+    if (err) {
+        console.error("Error creating directory:", err);
+        return;
+    }
+    console.log("Directory created successfully");
+    });
+} 
 //Exit an uncaught exception
 process.on("uncaughtException", (err) => {
   console.error("Uncaught Exception:", err);
