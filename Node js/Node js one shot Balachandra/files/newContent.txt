@@ -1,2 +1,2 @@
-Hello World, happy earning
-Welcome to Node.js
+Hello World, happy learning
+Welcome to Node.js learning
