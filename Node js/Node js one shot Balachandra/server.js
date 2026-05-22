@@ -46,3 +46,20 @@ fs.writeFile(path.join(__dirname, 'files', 'content.txt'), "Hello World, happy e
   }
   console.log("File written successfully");
 });
+
+fs.appendFile(path.join(__dirname, 'files', 'content.txt'), "\nWelcome to Node.js", (err) => {
+  if (err) {
+    console.error("Error appending to file:", err);
+    return;
+  }
+  console.log("File appended successfully");
+fs.rename(path.join(__dirname, 'files', 'content.txt'), path.join(__dirname, 'files', 'newContent.txt'), (err) => {
+    if (err) {
+        console.error("Error renaming file:", err);
+        return;
+    }
+    console.log("File renamed successfully");
+    });
+});
+
+
