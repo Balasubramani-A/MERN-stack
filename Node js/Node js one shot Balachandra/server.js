@@ -74,6 +74,8 @@ const fileOps = async () => {
     console.log("File appended successfully");
     await fsPromises.rename(path.join(__dirname, "files", "content.txt"), path.join(__dirname, "files", "newContent.txt"));
     console.log("File renamed successfully");
+    await fsPromises.unlink(path.join(__dirname, "files", "start.txt")); 
+    console.log("File deleted successfully");
   } catch (err) {
     console.error("Error:", err);
   } 
