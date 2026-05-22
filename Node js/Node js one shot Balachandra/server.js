@@ -2,7 +2,7 @@
 // console.log(global);
 
 // const os = require("os");
-// const path = require("path");
+const path = require("path");
 // const math = require("./math");
 
 
@@ -25,7 +25,7 @@
 const fs = require("fs");
 
 // Reading a file asynchronously
-fs.readFile("./files/start.txt", "utf-8", (err, data) => {
+fs.readFile(path.join(__dirname, 'files', 'start.txt'), "utf-8", (err, data) => {
   if (err) {
     console.error("Error reading file:", err);
     return;
@@ -38,3 +38,4 @@ process.on("uncaughtException", (err) => {
   console.error("Uncaught Exception:", err);
   process.exit(1); // Exit the process with a non-zero code to indicate an error
 });
+
