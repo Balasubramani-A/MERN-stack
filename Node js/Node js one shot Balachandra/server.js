@@ -1,2 +1,16 @@
 console.log("Hello World");
-console.log(global);
+// console.log(global);
+
+// const os = require("os");
+// const path = require("path");
+const math = require("./math");
+
+console.log(math.add(2, 3));
+// console.log(os.type());
+// console.log(os.version());
+// console.log(os.homedir());
+
+// console.log(__dirname);
+// console.log(__filename);
+
+// console.log(path.dirname(__filename));
