@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const readStream = fs.createReadStream(path.join(__dirname, "files", "start.txt"), "utf-8");
+const readStream = fs.createReadStream(path.join(__dirname, "files", "bigfile.txt"), "utf-8");
 const writeStream = fs.createWriteStream(path.join(__dirname, "files", "writeStream.txt"));
 
 readStream.on("data", (chunk) => {
