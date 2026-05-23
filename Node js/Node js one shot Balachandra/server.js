@@ -2,7 +2,7 @@
 // console.log(global);
 
 // const os = require("os");
-const path = require("path");
+// const path = require("path");
 // const math = require("./math");
 
 
@@ -23,7 +23,7 @@ const path = require("path");
 // console.log(math.divide(10, 2));
 
 // const fs = require("fs");
-const fsPromises = require("fs").promises;
+// const fsPromises = require("fs").promises;
 
 // Reading a file asynchronously
 // fs.readFile(path.join(__dirname, 'files', 'start.txt'), "utf-8", (err, data) => {
