@@ -13,8 +13,7 @@
   "description": "",
   "dependencies": {
     "date-fns": "^4.2.1",
-    // ^ means dont change the major version, only update minor and patch versions
-    "uuid": "^14.0.0"
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
