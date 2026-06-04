@@ -37,6 +37,12 @@ const three = (req, res) => {
 
 app.get(/^\/chain(\.html)?$/, [one, two, three]);
 
+//Middle wares
+//There are 3 types
+//1. Built in middle wares
+//2. Third party middle wares
+//3. Custom middle wares
+
 //if user types in something that doesn't exist, send them to the 404 page
 app.all(/.*/, (req, res) => {
     res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
