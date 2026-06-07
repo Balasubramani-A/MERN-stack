@@ -35,6 +35,7 @@ const three = (req, res) => {
     res.send('Finished!');
 }
 
+//shows how to chain middle wares together
 app.get(/^\/chain(\.html)?$/, [one, two, three]);
 
 //Middle wares
@@ -42,6 +43,7 @@ app.get(/^\/chain(\.html)?$/, [one, two, three]);
 //1. Built in middle wares
 //2. Third party middle wares
 //3. Custom middle wares
+
 
 //if user types in something that doesn't exist, send them to the 404 page
 app.all(/.*/, (req, res) => {
