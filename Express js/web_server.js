@@ -5,8 +5,12 @@ const PORT = process.env.PORT || 3500;
 //Middle wares
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+//built in middle wares
+//Error in the code below, the static files are not being served correctly. The issue is that the path to the static files is incorrect. The correct path should be 'public' instead of 'views'.
+console.log("Express is looking for static files in:", path.join(__dirname, 'public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(express.static(path.join(__dirname, './public')));
+
 
 app.get(/^\/$|\/index(.html)?$/, (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
@@ -57,4 +61,8 @@ app.all(/.*/, (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
-});
+
+    
+
+
+    
