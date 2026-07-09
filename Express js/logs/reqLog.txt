@@ -14,3 +14,5 @@
 20260701	00:45:53	142c543c-793b-43c6-8387-1c50f028fac6	/css/style.css	GET
 20260701	00:45:53	1ec10272-d6f7-4717-af36-520c9a4c15e8	/public/img/img1.jpg	GET
 20260701	00:45:53	76992b3a-b09d-4157-b1e3-d477c911c609	/.well-known/appspecific/com.chrome.devtools.json	GET
+20260701	01:46:03	ec5ed7c7-edf3-4d16-b506-6e7ff0ff7948	/	GET
+20260701	01:46:03	046085d7-9306-4fb1-a2ba-dba23beacf23	/public/css/style.css	GET

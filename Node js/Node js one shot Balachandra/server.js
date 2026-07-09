@@ -83,6 +83,31 @@
 
 // fileOps();
 
+const fs = require("fs");
+const http = require("http");
+const PORT = 3000;
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { "Content-Type": "text/html" });
+  fs.readFile("index.html", (err, data) => {
+    if (err) {
+      console.error("Error reading file:", err);
+      res.writeHead(500, { "Content-Type": "text/plain" });
+      res.end("Internal Server Error");
+      return;
+    }
+    res.end(data);
+  });
+});
+
+server.listen(PORT, (err) => {
+  if (err) {
+    console.error("Error starting server:", err);
+    return;
+  } 
+  console.log(`Server is running on port ${PORT}`);
+}); 
+
 //Exit an uncaught exception
 process.on("uncaughtException", (err) => {
   console.error("Uncaught Exception:", err);

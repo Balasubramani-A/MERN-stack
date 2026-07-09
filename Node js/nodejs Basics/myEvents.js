@@ -14,7 +14,13 @@ eventEmitter.once('pushnotification', (message) => {
 }); 
 
 //emit the 'greet' event
-eventEmitter.emit('greet', 'Balasubramani');
+// eventEmitter.emit('greet', 'Balasubramani');
 
-eventEmitter.emit('pushnotification', 'You have a new message from Balu!');
-eventEmitter.emit('pushnotification', 'You have a new message from John!'); // This will not trigger the event listener since it's a one-time listener  
+// eventEmitter.emit('pushnotification', 'You have a new message from Balu!');
+// eventEmitter.emit('pushnotification', 'You have a new message from John!'); // This will not trigger the event listener since it's a one-time listener  
+
+const myListener = () => {
+    console.log('This is a test event listener!');
+}
+eventEmitter.on('test', myListener);
+eventEmitter.emit('test'); // This will trigger the 'test' event and execute the myListener function

@@ -9,7 +9,7 @@ app.use(logger);
 
 
 //Cross origin resource sharing (CORS) is a security feature implemented by web browsers that restricts web pages from making requests to a different domain than the one that served the web page. It is used to allow or restrict resources on a web server to be requested from another domain outside the domain from which the resource originated. In this code, the cors middleware is used to enable CORS for all routes in the Express application.
-const whitelist = ['https://www.yoursite.com', 'http://localhost:3500'];
+const whitelist = ['https://www.mymacstore.com', 'http://localhost:3500'];
 const corsOptions = {
     origin: (origin, callback) => {
         if (whitelist.includes(origin) || !origin) {
@@ -21,7 +21,8 @@ const corsOptions = {
     optionsSuccessStatus: 200 // For legacy browser support
 }
 app.use(cors(corsOptions));
-// app.use(cors());
+
+
 
 //Middle wares
 //Used for fetching data from the client side, such as form data or JSON data. It is used to parse the incoming request body and make it available in the req.body object.
