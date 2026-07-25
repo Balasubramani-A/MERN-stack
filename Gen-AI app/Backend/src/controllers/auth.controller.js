@@ -2,6 +2,7 @@ const userModel = require("../models/user.model");
 const tokenBlacklistModel = require("../models/blacklist.model"); // <-- Added this
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const authRouter = require("../routes/auth.routes");
 
 /**
  * @route POST /api/auth/register
@@ -115,7 +116,7 @@ async function loginUserController(req, res) {
 /** @name logoutUserController
  * @route GET /api/auth/logout
  * @desc Logout a user
- * @access Private
+ * @access Public
  */
 
 async function logoutUserController(req, res) {
@@ -136,10 +137,37 @@ async function logoutUserController(req, res) {
 }
 
 
+/**
+ * @route GET /api/auth/get-me
+ * @desc Get current logged in user details
+ * @access Private
+ */
+
+async function getMeController(req, res) {
+    try {
+        const user = await userModel.findById(req.user.id);
+       if (!user) {
+           return res.status(404).json({ message: "User not found" });
+       }
+
+       return res.status(200).json({
+           message: "User found",
+           user: {
+               id: user._id,
+               username: user.username,
+               email: user.email
+           }
+       });
+    } catch (error) {
+        console.error("Error getting user details:", error);
+        return res.status(500).json({ message: "Internal server error" });
+    }
+}       
 
 
 module.exports = {
     registerUserController,
     loginUserController,
-    logoutUserController
+    logoutUserController,
+    getMeController
 };
