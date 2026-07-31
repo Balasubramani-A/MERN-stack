@@ -1,11 +1,21 @@
 import React from "react";
 import { useNavigate, Link } from "react-router";
+// import { useAuth } from "../auth.context";
+import { useAuth } from "../hooks/useAuth";
 const Register = () => {
   const navigate = useNavigate();
-
-  const handleSubmit = (e) => {
+  const [username, setUsername] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const { handleRegister, loading } = useAuth();
+  const handleSubmit = async(e) => {
         e.preventDefault();
-        // Handle form submission logic here
+        await handleRegister({ username, email, password });
+        navigate("/");
+  }
+
+  if(loading) {
+    return (<main><h1>Loading...</h1></main>)
   }
 
   return (
@@ -15,15 +25,15 @@ const Register = () => {
             <form onSubmit={handleSubmit}>
               <div className="input-group">
                   <label htmlFor="username">Username:</label>
-                  <input type="text" id="username" name="username" placeholder="Enter Username" required />
+                  <input onChange={(e) => setUsername(e.target.value)} type="text" id="username" name="username" placeholder="Enter Username" required />
               </div>
                 <div className="input-group">
                     <label htmlFor="email">Email:</label>
-                    <input type="email" id="email" name="email" placeholder="Enter Email address" required />
+                    <input onChange={(e) => setEmail(e.target.value)} type="email" id="email" name="email" placeholder="Enter Email address" required />
                 </div>
                 <div className="input-group">
                     <label htmlFor="password">Password:</label>
-                    <input type="password" id="password" name="password" required />
+                    <input onChange={(e) => setPassword(e.target.value)} type="password" id="password" name="password" required />
                 </div>
                 <button className="button primary-button" type="submit">Register</button>
             </form>
