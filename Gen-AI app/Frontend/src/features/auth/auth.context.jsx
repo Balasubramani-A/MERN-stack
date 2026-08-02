@@ -20,45 +20,47 @@
 //   );
 // };
 
-import { createContext, useState } from "react";
-
+import { createContext, useState} from "react";
+import { getMe } from "./services/auth.api";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  const handleLogin = async (credentials) => {
-    setLoading(true);
-    try {
-      // 1. Call your API here (e.g., const response = await api.login(credentials);)
-      // 2. Set the authenticated user object in state
-      const loggedInUser = { email: credentials.email }; 
-      setUser(loggedInUser);
-      return loggedInUser;
-    } catch (error) {
-      console.error("Login failed:", error);
-      throw error;
-    } finally {
-      setLoading(false);
-    }
-  };
+  
 
-  const handleRegister = async (data) => {
-    setLoading(true);
-    try {
-      // 1. Call your API here
-      // 2. Set user upon registration
-      const registeredUser = { username: data.username, email: data.email };
-      setUser(registeredUser);
-      return registeredUser;
-    } catch (error) {
-      console.error("Registration failed:", error);
-      throw error;
-    } finally {
-      setLoading(false);
-    }
-  };
+  // const handleLogin = async (credentials) => {
+  //   setLoading(true);
+  //   try {
+  //     // 1. Call your API here (e.g., const response = await api.login(credentials);)
+  //     // 2. Set the authenticated user object in state
+  //     const loggedInUser = { email: credentials.email }; 
+  //     setUser(loggedInUser);
+  //     return loggedInUser;
+  //   } catch (error) {
+  //     console.error("Login failed:", error);
+  //     throw error;
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
+  // const handleRegister = async (data) => {
+  //   setLoading(true);
+  //   try {
+  //     // 1. Call your API here
+  //     // 2. Set user upon registration
+  //     const registeredUser = { username: data.username, email: data.email };
+  //     setUser(registeredUser);
+  //     return registeredUser;
+  //   } catch (error) {
+  //     console.error("Registration failed:", error);
+  //     throw error;
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   return (
     <AuthContext.Provider value={{ user, loading, setUser, setLoading }}>

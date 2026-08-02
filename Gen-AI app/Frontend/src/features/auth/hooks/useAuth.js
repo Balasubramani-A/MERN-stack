@@ -47,7 +47,7 @@
 
 
 // hooks/useAuth.js
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../auth.context.jsx";
 import { login, register, logout, getMe } from "../services/auth.api.js";
 
@@ -97,6 +97,23 @@ export const useAuth = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+      const fetchUser = async () => {
+        setLoading(true);
+        try {
+          const userData = await getMe();
+          setUser(userData.user);
+          
+        } catch (error) {
+          console.error("Failed to fetch user:", error);
+        } finally {
+          setLoading(false);
+        }
+      };
+  
+      fetchUser();
+    }, []);
 
   return { user, setUser, loading, setLoading, handleLogin, handleRegister, handleLogout };
 };
